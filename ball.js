@@ -3,7 +3,7 @@ import { posPaddleA, posPaddleB } from "./paddle.js"
 let width = 10
 export let posBall = { x: 200, y: 200}
 let random = Math.floor(Math.random()*4)+1
-let velBall = { x: random, y: random }
+let velBall = { x: 10, y: 10 }
 
 
 export function drawBall(){
