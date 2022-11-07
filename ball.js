@@ -6,6 +6,8 @@ let random = Math.floor(Math.random()*4)+1
 let velBall = { x: 10, y: 10 }
 
 
+
+
 export function drawBall(){
       ctx.fillStyle = 'white'
       ctx.fillRect(posBall.x, posBall.y, width, width)
@@ -38,9 +40,9 @@ function moveBall(x){
 function bounceBall(){
       if (posBall.y == 0|| posBall.y ==400){
             if(Math.sign(velBall.y) ==1){
-                  velBall.y = -5
+                  velBall.y = -10
             }else if(Math.sign(velBall.y) == -1){
-                  velBall.y = 5
+                  velBall.y = 10
             }
       }
 }
@@ -48,15 +50,21 @@ function bounceBall(){
 function paddleBounce(posPaddleA, posPaddleB){
       if((posBall.y < (posPaddleA.y +50))&&(posBall.y > posPaddleA.y)&&(posBall.x == (posPaddleA.x +10))||(posBall.x==(posPaddleB.x -10))&&(posBall.y< (posPaddleB.y +50))&&(posBall.y > posPaddleB.y)){
             if(Math.sign(velBall.x)==1){
-                  velBall.x = -5
+                  velBall.x = -10
             }else if(Math.sign(velBall.x)==-1){
-                  velBall.x = 5
+                  velBall.x = 10
             }
       }
 }
+
+
+
 function outOfBounds(){
       if(posBall.x<0||posBall.x>400){
             posBall = {x:200,y:200}
             moveBall(random)
       }
+      
 }
+
+
