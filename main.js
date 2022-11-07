@@ -1,21 +1,9 @@
 import { drawBall, posBall, updateBall } from "./ball.js";
 import { drawPaddleA, drawPaddleB, updatePaddleA, updatePaddleB } from "./paddle.js";
+import { updateScore } from "./score.js";
 
 const canvas = document.querySelector('canvas');
 export const ctx = canvas.getContext('2d');
-
-let scoreA = document.getElementById('score-a')
-let scoreB = document.getElementById('score-b');
-
-let sca = 1
-let scb = 1
-
-if(posBall.x <0){
-      scoreA.innerHTML = sca
-}
-if(posBall.x > 400){
-      scoreB.innerHTML = scb
-}
 
 canvas.width = 410
 canvas.height =410
@@ -34,6 +22,7 @@ function update(){
       updatePaddleA()
       updatePaddleB()
       updateBall()
+      updateScore(posBall)
 }
 function animate(currentTime) {
       window.requestAnimationFrame(animate)
